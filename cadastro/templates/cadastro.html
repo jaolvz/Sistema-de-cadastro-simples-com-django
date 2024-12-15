@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cadastro/css/cadastro.css' %}">
+</head>
+<body>
+
+    <header> <h1> MyNetwork</h1></header>
+
+  <div>
+    <form action="{% url 'cadastrar_usuario' %}" method="POST">
+      {% csrf_token %}
+        <input type="text" name="usuario" id="" placeholder="Usuario">
+        <input type="email" name="email" id="" placeholder="Email">
+        <input type="password" name="senha" id="" placeholder="Senha">
+        <input type="submit" value="Cadastrar">
+    </form>
+
+
+  </div>
+    <footer><h6>@jaolvz</h6></footer>
+</body>
+</html>

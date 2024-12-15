@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: fonte;
+
+}
+@font-face {
+    font-family: 'fonte';
+    src: url('../../Impact.ttf') format('truetype');
+}
+footer,header{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+html, body{
+    overflow: hidden;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+div{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+form input{
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+}
+input[type='submit']{
+    margin-top: 20px;
+}
+
+
