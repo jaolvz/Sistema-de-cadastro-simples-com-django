@@ -2,8 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: fonte;
+
 }
+
 
 @font-face {
     font-family: fonte;
@@ -15,6 +16,7 @@ footer,header{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: fonte;
 }
 
 
@@ -22,6 +24,8 @@ body, html{
     overflow-x: hidden;
 }
 body{
+    background-color: black;
+    color: white;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -37,7 +41,6 @@ div{
     justify-content: center;
 }
 form{
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
 align-items: center;
@@ -50,10 +53,16 @@ border-radius: 10px;
 form input{
     text-align: center;
     padding: 10px;
-}
-
-form a , form input{
     margin-top :10px;
 
 }
 
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+form p{
+    margin: 10px 0;
+}

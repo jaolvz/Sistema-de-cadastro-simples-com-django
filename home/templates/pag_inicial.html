@@ -1,0 +1,39 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/pag_inicial.css' %}">
+    <title>Document</title>
+</head>
+<body>
+   <header><h2>MyNetwork</h2>  <div><h3><a href="{% url 'home:perfil' %}">{{user.username}}</a></h3> <h6><a href="{% url 'home:logout' %}">Sair</a></h6> </div>
+
+   </header>
+
+ <main>
+  <form method="POST" enctype="multipart/form-data" action="{% url 'home:upload_post' %} ">
+    {% csrf_token %}
+    <textarea required name="txt_post" placeholder="Oque você tem para compartilhar?" cols="30" rows="5"></textarea>
+    <input type="submit" value="Enviar">
+  </form>
+  
+
+  {%for post in posts %}
+  <div class="post">
+  <div class="post_autor">  <h4>{{post.autor}} </h4>
+ <h6>Autor</h6></div>
+    
+    <div class="post_conteudo"><h5>{{ post.conteudo}}</h5> </div>
+    
+  </div>
+{%endfor%}
+
+
+ </main>
+
+<footer>@jaolvz</footer>
+</body>
+</html>

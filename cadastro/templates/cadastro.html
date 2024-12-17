@@ -7,21 +7,20 @@
     <title>Cadastre-se</title>
     <link rel="stylesheet" type="text/css" href="{% static 'cadastro/css/cadastro.css' %}">
 </head>
-<body>
+<body >
 
     <header> <h1> MyNetwork</h1></header>
 
   <div>
-    <form action="{% url 'cadastrar_usuario' %}" method="POST">
+    <form action="{% url 'usuario:cadastro' %}" method="POST">
       {% csrf_token %}
         <input type="text" name="usuario" id="" placeholder="Usuario">
         <input type="email" name="email" id="" placeholder="Email">
         <input type="password" name="senha" id="" placeholder="Senha">
         <input type="submit" value="Cadastrar">
     </form>
-
-
   </div>
+  <a href="{% url 'usuario:login' %}">Já possuo conta</a>
     <footer><h6>@jaolvz</h6></footer>
 </body>
 </html>

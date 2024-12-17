@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cadastro/css/index.css' %}">
+
+</head>
+<body>
+    <header> <h1>MyNetwork</h1></header>
+
+        <div>
+
+        <form action="{% url 'usuario:login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="usuario" id="" placeholder="Usuario">
+            <input type="password" name="senha" id="" placeholder="Senha">
+            {% if erro %}
+            <p>Usuário ou senha incorretos.</p>
+        {% endif %}
+            <input type="submit" value="Login"> 
+      
+        </form>
+    </div>
+
+
+    <a href="{% url 'usuario:cadastro' %}">Não tenho cadastro</a>
+    <footer>
+       <h6>@jaolvz</h6>
+    </footer>
+</body>
+</html>
