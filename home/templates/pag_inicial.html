@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-   <header><h2>MyNetwork</h2>  <div><h3><a href="{% url 'home:perfil' %}">{{user.username}}</a></h3> <h6><a href="{% url 'home:logout' %}">Sair</a></h6> </div>
+   <header><h2> <a href="{% url 'home:pag_inicial' %}"> MyNetwork</a></h2>  <div><h3><a href="{% url 'home:perfil' usuario=request.user.username %}">{{user.username}}</a></h3> <h6><a href="{% url 'home:logout' %}">Sair</a></h6> </div>
 
    </header>
 
@@ -21,15 +21,42 @@
   </form>
   
 
-  {%for post in posts %}
+  {% for item in posts %}
   <div class="post">
-  <div class="post_autor">  <h4>{{post.autor}} </h4>
- <h6>Autor</h6></div>
+    <div class="post_inf">
+      <div class="post_header">
+      <img  class="perfil_header" src="{{item.foto_perfil}}" alt="">
+      </div>
+
+      <h6>{{item.post.autor.username}}</h6>
+      <h6>{{item.post.postado|date:'d/m/y'}}</h6>
+    </div>
     
-    <div class="post_conteudo"><h5>{{ post.conteudo}}</h5> </div>
-    
+    <div class="post_conteudo">
+      <p>{{item.post.conteudo}}</p>
+
+      <nav class="nav_post">
+        <ul class="lista_post">
+          <li>Gostei</li>
+          <li>Comentar</li>
+          <li>Compartilhar</li>
+        </ul>
+      </nav>
+      
+    <form class ='form_comentario'action="" method="">
+      <textarea 
+    name="" 
+    placeholder="Escreva um comentário" 
+    oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" 
+    style="overflow:hidden;resize:none;width:100%;min-height:50px;box-sizing:border-box;">
+  </textarea>
+    </form>
+   
+
+    </div>
+
   </div>
-{%endfor%}
+{% endfor %}
 
 
  </main>

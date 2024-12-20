@@ -1,0 +1,310 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'fonte';
+    src: url('../../Impact.ttf') format('truetype');
+}
+
+html, body{
+    overflow-x: hidden;
+}
+
+body{
+    background-color: black;
+    color:white;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+header,footer{
+    width: 100%;
+    font-family: fonte;
+    display: flex;
+    align-items: center;
+
+    padding: 40px;
+
+}
+header h2{
+
+width: 50%;}
+header h3{
+    margin-right: 20px;
+}
+header div{
+width: 50%;
+display: flex;
+align-items: center;
+justify-content: right;
+
+}
+header a{
+    text-decoration: none;
+    color: inherit
+}
+
+footer{
+    justify-content: center;
+}
+
+
+main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Estilo geral da barra de rolagem */
+::-webkit-scrollbar {
+    width: 5px; /* Largura da barra de rolagem */
+    height: 5px; /* Altura para scroll horizontal */
+}
+
+
+
+/* Cor e estilo do indicador de rolagem */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Cor do indicador */
+    border-radius: 10px; /* Cantos arredondados */
+}
+
+/* Hover no indicador de rolagem */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor ao passar o mouse */
+}
+
+
+
+.perfil{
+width: 100%;
+position: relative;
+    text-align: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding:30px;
+    padding-top: 150px;
+
+}
+
+
+.foto_perfil
+{  
+position: relative;
+border-radius: 50%;
+z-index: 1;
+height: 300px;
+width: 300px;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+
+
+
+}
+#img_perfil{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+.sem_perfil{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+.sem_perfil h1{
+    pointer-events: none;
+    opacity: 50%;
+}
+.mudar_foto{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 80%; 
+    left: 50%; 
+    transform: translate(-50%, -20%); 
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+    cursor:pointer
+}
+
+.foto_perfil:hover .mudar_foto {
+    opacity: 1; 
+}
+
+.img_mudar{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+
+
+#img_capa{
+    object-fit: cover;
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    width: 110%; 
+    height:300px;
+    transform: translate(-50%, 0%); 
+    z-index: -1;
+}
+   
+
+.sem_capa{
+    position: absolute;
+    top: 0; 
+    left: 50%; 
+    width: 110%; 
+    height:300px;
+    transform: translate(-50%, 0%); 
+    z-index: -1;
+    background-color: rgb(48, 48, 48);
+}
+
+
+
+
+.body_span{
+    pointer-events: none;
+    filter: brightness(30%);
+}
+
+#span_troca_foto     {
+    display: none;
+    background-color: whitesmoke;
+    padding: 10px;
+    height:60%;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    filter: brightness(100%);
+    z-index: 2;
+    
+}
+
+.span_div_trocas{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    
+
+}
+.div_span{
+    font-family: 'fonte';
+    position: relative;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;;
+    
+}
+
+
+.div_span img  {
+    height: 30%;
+    width: 25%;
+    object-fit: cover;
+    overflow: hidden;
+    margin: 20px;
+}
+.btn_trocar_perfil{
+    display: none;
+}
+.label_file_perfil {
+    cursor: pointer;
+    border: 1px solid gainsboro;
+    display: block; /* Torna o label um elemento de bloco */
+    padding: 10px; /* Adiciona um padding para estilizar o label */
+    text-align: center; /* Centraliza o texto dentro do label */
+}
+
+.fechar_span{
+    position: absolute;
+    background-color: transparent;
+    font-family: 'fonte';
+    color: white;
+    border:none;
+    top: 10%; 
+    left: 95%; 
+    transform: translate(-5%, -90%); 
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+nav{
+
+    width: 100%; 
+    height: 30px;
+    text-align: center;
+    font-family: 'fonte';
+    margin-top: 20px;
+
+    }
+    nav ul{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 auto; 
+
+        
+    }
+    ul li{
+        padding: 10px;
+        list-style: none;
+        width:25% ;
+        height: 100%;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+    nav ul li:hover {
+        background-color: rgb(24, 24, 24)
+    }
+    
+    
+
+
+
+
+.posts, .sobre,.compatilhamentos, .comentarios{
+    display: none;
+}

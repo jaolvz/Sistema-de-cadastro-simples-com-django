@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-olm#4%p6d==w@*@a9$0+^c#9nvp3j519g!^4(vddx+c^34p+2$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -108,10 +108,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS= [ os.path.join(BASE_DIR, 'static')]
 
-STATICFILES_DIRS= [ os.path.join(BASE_DIR, 'templates/static')
-
-]
+MEDIA_URL='media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+ 
+#FILE_UPLOAD_MAX_MEMORY_SIZE =1000000
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

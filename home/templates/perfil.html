@@ -5,11 +5,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/perfil.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <p>meu perfil
 
-    </p>
+    
+    <span id="span_troca_foto">
+   <div class="span_div_trocas">
+    <button id="fechar_span" class="fechar_span">X</button>
+
+    <div id ='span_perfil' class="div_span">
+
+        
+            <h5>Perfil</h5>
+
+            {%if perfil_url %}
+            <img src="{{perfil_url}}" alt="">
+            {%else %}
+            <h4>Sem foto</h4>
+            {%endif%}
+
+            <form action="{% url 'home:upload_img_perfil'%}" enctype="multipart/form-data" method="post">
+                <label class="label_file_perfil" for="upload_form"> Carregar foto</label>
+                {% csrf_token %}
+                <input type="file" class="btn_trocar_perfil" name="img_perfil" onchange="enviar_form('upload_form')" id="upload_form" accept="image/*">
+            </form>
+            
+
+     </div>
+
+
+     <div id ='span_capa'class="div_span">
+            <h5>Capa</h5>
+
+            {%if capa_url %}
+            <img src="{{capa_url}}" alt="">
+            {%else %}
+            <h4>Sem foto</h4>
+            {%endif%}
+
+            <form action="{% url 'home:upload_img_capa' %}" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <label  class="label_file_perfil" for="upload_form_capa">Carregar foto</label>
+                <input class="btn_trocar_perfil" type="file" name="img_capa" id="upload_form_capa" onchange="enviar_form('upload_form_capa')" accept="image/*">
+            </form>
+        </div>
+
+     </div>
+
+
+    </span>
+
+
+    <header><h2> <a href="{% url 'home:pag_inicial' %}"> MyNetwork</a></h2>  <div><h3><a href="{% url 'home:perfil' usuario=request.user.username %}">{{user.username}}</a></h3> <h6><a href="{% url 'home:logout' %}">Sair</a></h6> </div>
+
+    </header>
+
+   <main>
+    
+   <div class="perfil">
+        {% if capa_url %}
+        <img id="img_capa" src="{{ capa_url }}" alt="">
+        {% else %}
+        <div class="sem_capa"></div>
+        {% endif %}
+
+    
+    <div id="trocar_foto" class="foto_perfil">
+        {% if perfil_url%}
+        <img id="img_perfil" src="{{perfil_url}}" alt="">
+        {% else%}  
+        <div class="sem_perfil"> <h1>{{usuario.username}}</h1> </div>
+        {%endif%}   
+
+        {% if usuario == request.user %}
+        <div class="mudar_foto"> <img class="img_mudar" src="{% static 'home/imgs/camera.png'%}" alt=""></div>
+        {%endif %}
+    </div>
+    </div>
+    
+    <h1>{{usuario.first_name}}</h1>
+   
+
+   </div>
+
+ 
+        <nav>
+            <ul class="nav-perfil">
+                <li  onclick="exibir_nav('posts_usuario')" >Posts</li>
+                <li onclick="exibir_nav('comentarios_usuario')"   >Comentarios</li>
+                <li onclick="exibir_nav('compartilhamentos_usuario')"  >Compartilhamentos</li>
+                <li onclick="exibir_nav('sobre_usuario')" >Sobre</li>
+            </ul>
+        </nav>
+   
+
+<div id='posts_usuario' class="posts">
+    {% for post in posts_usuario %}
+    <div class="post_item">
+        {{ post.conteudo }}
+    </div>
+{% endfor %}
+</div>
+
+<div id="sobre_usuario" class="sobre">
+    {{usuario.email}}
+</div>
+<div id="comentarios_usuario" class="comentarios">
+    <p>oidaodidosi</p>
+</div>
+
+<div id="compartilhamentos_usuario" class="compatilhamentos">
+    <h1>compartilhamento</h1>
+</div>
+
+
+   </main>
+ <footer>@jaolvz</footer>
+
 </body>
+<script src="{% static 'home/js/script.js' %}"></script>
 </html>

@@ -14,9 +14,10 @@
   <div>
     <form action="{% url 'usuario:cadastro' %}" method="POST">
       {% csrf_token %}
-        <input type="text" name="usuario" id="" placeholder="Usuario">
-        <input type="email" name="email" id="" placeholder="Email">
-        <input type="password" name="senha" id="" placeholder="Senha">
+        <input type="text" name="usuario" required ="" placeholder="Usuario">
+        <input type="text" name ='nome' required placeholder="Nome">
+        <input type="email" name="email" required id="" placeholder="Email">
+        <input type="password" name="senha"  required ="" placeholder="Senha">
         <input type="submit" value="Cadastrar">
     </form>
   </div>
